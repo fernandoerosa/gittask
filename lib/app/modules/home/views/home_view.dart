@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:gittask/app/utils/widgets/navbar/NavBar.dart';
 
+import '../../../utils/widgets/navbar/NavModel.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -9,6 +11,13 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    final homeNavKey = GlobalKey<NavigatorState>();
+    final searchNavKey = GlobalKey<NavigatorState>();
+    final notificationNavKey = GlobalKey<NavigatorState>();
+    final profileNavKey = GlobalKey<NavigatorState>();
+    int selectedTab = 0;
+    List<NavModel> items = [];
+
     var _selectedIndex = 0;
     return Scaffold(
       appBar: AppBar(
@@ -36,7 +45,6 @@ class HomeView extends GetView<HomeController> {
             ),
           )
         ],
-        title: const Text('Test'),
         centerTitle: true,
       ),
       body: Obx(
@@ -47,25 +55,35 @@ class HomeView extends GetView<HomeController> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => controller.increment(),
-        child: const Icon(Icons.add),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Container(
+        margin: const EdgeInsets.only(top: 50),
+        height: 64,
+        width: 64,
+        child: FloatingActionButton(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          onPressed: () => controller.increment(),
+          shape: RoundedRectangleBorder(
+            side: const BorderSide(width: 3, color: Colors.black),
+            borderRadius: BorderRadius.circular(100),
+          ),
+          child: const Icon(
+            Icons.add,
+            color: Colors.black,
+          ),
+        ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.call),
-            label: 'Calls',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.camera),
-            label: 'Camera',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Chats',
-          ),
-        ],
+      bottomNavigationBar: NavBar(
+        pageIndex: selectedTab,
+        onTap: (index) {
+          if (index == selectedTab) {
+            items[index]
+                .navKey
+                .currentState
+                ?.popUntil((route) => route.isFirst);
+          } else {}
+        },
       ),
       drawer: Drawer(
         child: ListView(
