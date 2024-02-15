@@ -1,0 +1,6 @@
+package com.rosa.gittask
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
