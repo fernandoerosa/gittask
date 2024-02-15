@@ -15,10 +15,9 @@ class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         left: 16,
         right: 16,
-        bottom: Platform.isAndroid ? 16 : 0,
       ),
       child: BottomAppBar(
         elevation: 0.0,
