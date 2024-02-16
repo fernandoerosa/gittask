@@ -33,7 +33,7 @@ class NavBar extends StatelessWidget {
                   onTap: () => onTap(0),
                 ),
                 navItem(
-                  Icons.message_outlined,
+                  Icons.task_alt_outlined,
                   pageIndex == 1,
                   onTap: () => onTap(1),
                 ),
@@ -44,7 +44,7 @@ class NavBar extends StatelessWidget {
                   onTap: () => onTap(2),
                 ),
                 navItem(
-                  Icons.person_outline,
+                  Icons.summarize_outlined,
                   pageIndex == 3,
                   onTap: () => onTap(3),
                 ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:gittask/app/utils/widgets/navbar/NavBar.dart';
+import 'package:gittask/app/utils/widgets/navbar/nav_bar.dart';
 
-import '../../../utils/widgets/navbar/NavModel.dart';
+import '../../../utils/widgets/navbar/nav_model.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -115,7 +115,7 @@ class HomeView extends GetView<HomeController> {
         child: FloatingActionButton(
           backgroundColor: Colors.white,
           elevation: 0,
-          onPressed: () => controller.increment(),
+          onPressed: () => controller.getUsers(),
           shape: RoundedRectangleBorder(
             side: const BorderSide(width: 3, color: Colors.black),
             borderRadius: BorderRadius.circular(100),
