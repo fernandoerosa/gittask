@@ -18,6 +18,6 @@ class User extends HiveObject {
 
   @override
   String toString() {
-    return 'User{uuid: $uuid, email: $email}';
+    return 'User{id: $key ,uuid: $uuid, email: $email}';
   }
 }

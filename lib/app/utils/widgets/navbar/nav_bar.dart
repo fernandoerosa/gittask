@@ -1,10 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:gittask/app/routes/app_pages.dart';
 
 class NavBar extends StatelessWidget {
   final int pageIndex;
-  final Function(int) onTap;
+  final Function(String) onTap;
 
   const NavBar({
     super.key,
@@ -30,23 +31,23 @@ class NavBar extends StatelessWidget {
                 navItem(
                   Icons.home_outlined,
                   pageIndex == 0,
-                  onTap: () => onTap(0),
+                  onTap: () => onTap(Routes.HOME),
                 ),
                 navItem(
                   Icons.task_alt_outlined,
                   pageIndex == 1,
-                  onTap: () => onTap(1),
+                  onTap: () => onTap(Routes.TASK),
                 ),
                 const SizedBox(width: 80),
                 navItem(
                   Icons.notifications_none_outlined,
                   pageIndex == 2,
-                  onTap: () => onTap(2),
+                  onTap: () => onTap(Routes.HOME),
                 ),
                 navItem(
                   Icons.summarize_outlined,
                   pageIndex == 3,
-                  onTap: () => onTap(3),
+                  onTap: () => onTap(Routes.HOME),
                 ),
               ],
             ),

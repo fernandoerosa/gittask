@@ -19,6 +19,7 @@ void main() async {
     ..registerAdapter(TaskAdapter());
 
   await Hive.openBox<User>('users');
+  await Hive.openBox<Task>('tasks');
 
   runApp(
     GetMaterialApp(

@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:gittask/app/repositories/user_repository.dart';
 
 class HomeController extends GetxController {
   final count = 0.obs;
@@ -16,10 +15,6 @@ class HomeController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-  }
-
-  getUsers() {
-    UserRepository.openBox();
   }
 
   String getCount() {
