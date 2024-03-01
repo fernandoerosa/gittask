@@ -1,5 +1,5 @@
-import 'package:asp_arch/app/(public)/home/home_controller.dart';
-import 'package:asp_arch/app/(public)/task/task_controller.dart';
+import 'package:asp_arch/app/(modules)/home/home_controller.dart';
+import 'package:asp_arch/app/(modules)/task/controller/task_controller.dart';
 import 'package:asp_arch/app/data/repositories/shared_todo_repository.dart';
 import 'package:auto_injector/auto_injector.dart';
 

@@ -1,6 +1,7 @@
 import 'package:asp/asp.dart';
-import 'package:asp_arch/app/interactor/actions/todo_action.dart';
-import 'package:asp_arch/app/interactor/atoms/todo_atom.dart';
+import 'package:asp_arch/app/(modules)/task/atoms/todo_atom.dart';
+import 'package:asp_arch/app/(modules)/task/controller/task_controller.dart';
+import 'package:asp_arch/app/injector.dart';
 import 'package:asp_arch/app/interactor/models/todo_model.dart';
 import 'package:asp_arch/app/utils/widgets/navbar/nav_model.dart';
 import 'package:asp_arch/app/utils/widgets/scaffold/base_scaffold.dart';
@@ -14,6 +15,14 @@ class TaskPage extends StatefulWidget {
 }
 
 class _TaskPageState extends State<TaskPage> {
+  final controller = injector.get<TaskController>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    controller.fetchTodos();
+  }
+
   void editTodoDialog([TodoModel? model]) {
     model ??= TodoModel(id: -1, title: '', check: false);
     showDialog(
@@ -30,7 +39,7 @@ class _TaskPageState extends State<TaskPage> {
           actions: [
             TextButton(
               onPressed: () {
-                TodoAction.deleteTodo(model!.id);
+                controller.deleteTodo(model!.id);
                 Navigator.pop(context);
               },
               child: const Text('Delete'),
@@ -43,7 +52,7 @@ class _TaskPageState extends State<TaskPage> {
             ),
             TextButton(
               onPressed: () {
-                TodoAction.putTodo(model!);
+                controller.putTodo(model!);
                 Navigator.pop(context);
               },
               child: const Text('Save'),
@@ -98,7 +107,7 @@ class _TaskPageState extends State<TaskPage> {
                 value: todo.check,
                 title: Text(todo.title),
                 onChanged: (value) {
-                  TodoAction.putTodo(
+                  controller.putTodo(
                     todo.copyWith(check: value!),
                   );
                 },

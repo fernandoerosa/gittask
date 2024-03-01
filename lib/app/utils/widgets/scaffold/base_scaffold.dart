@@ -1,4 +1,4 @@
-import 'package:asp_arch/app/(public)/task/task_controller.dart';
+import 'package:asp_arch/app/(modules)/task/controller/task_controller.dart';
 import 'package:asp_arch/app/injector.dart';
 import 'package:asp_arch/app/utils/widgets/navbar/nav_model.dart';
 import 'package:asp_arch/routes.dart';

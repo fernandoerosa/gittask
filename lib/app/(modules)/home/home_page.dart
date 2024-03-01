@@ -1,4 +1,3 @@
-import 'package:asp_arch/app/interactor/actions/todo_action.dart';
 import 'package:asp_arch/app/utils/widgets/navbar/nav_model.dart';
 import 'package:asp_arch/app/utils/widgets/scaffold/base_scaffold.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +13,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    TodoAction.fetchTodos();
   }
 
   @override

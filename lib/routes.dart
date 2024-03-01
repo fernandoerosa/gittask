@@ -1,9 +1,9 @@
 import 'package:routefly/routefly.dart';
 
-import 'app/(public)/home/home_page.dart' as a2;
-import 'app/(public)/splash_page.dart' as a3;
-import 'app/(public)/task/details/[id]_page.dart' as a1;
-import 'app/(public)/task/task_page.dart' as a0;
+import 'app/(modules)/home/home_page.dart' as a2;
+import 'app/(modules)/splash_page.dart' as a3;
+import 'app/(modules)/task/details/[id]_page.dart' as a1;
+import 'app/(modules)/task/task_page.dart' as a0;
 
 List<RouteEntity> get routes => [
   RouteEntity(
